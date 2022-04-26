@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "city-drone-solutions",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
