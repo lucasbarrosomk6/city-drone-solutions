@@ -1,32 +1,33 @@
-import Head from "next/head";
-import React from "react";
-import { Provider } from "react-redux";
-import "react-responsive-modal/styles.css";
-import "./index.scss";
-import { store } from "../redux/store";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Head from 'next/head';
+import React, { useEffect } from 'react';
+import { Provider } from 'react-redux';
+import 'react-responsive-modal/styles.css';
+import './index.scss';
+import { store } from '../redux/store';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { getTotal } from '../redux/features/productSlice';
 import { initializeApp } from "firebase/app";
-
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
 }
 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDoTXh5uZCxP35Yj2hrwid9ogC6U4t4754",
-  authDomain: "city-drone-solutions.firebaseapp.com",
-  projectId: "city-drone-solutions",
-  storageBucket: "city-drone-solutions.appspot.com",
-  messagingSenderId: "207535465585",
-  appId: "1:207535465585:web:6a5a3929860408c55e27d0",
-  measurementId: "G-V5Q3J9QMCP",
+  apiKey:'AIzaSyCOTzyD9nCW6DaO1sl0e0-4yuNSB0JKUNE',
+  authDomain:'markit-next-js.firebaseapp.com',
+  projectId:'markit-next-js',
+  storageBucket:'markit-next-js.appspot.com',
+  messagingSenderId:'1068467809754',
+  appId:'1:1068467809754:web:80ad8acdcc2670ce09a4e3',
 };
-
 initializeApp(firebaseConfig);
-// Get a reference to the storage service, which is used to create references in your storage bucket
 
-// rootRef now points to the root
+
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    store.dispatch(getTotal());
+  }, []);
   return (
     <>
       <Head>
@@ -34,11 +35,11 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <Provider store={store}>
-        <Component {...pageProps} />
+          <Component {...pageProps} />
         <ToastContainer />
       </Provider>
     </>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp
