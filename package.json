@@ -25,6 +25,7 @@
     "react-responsive-modal": "^6.2.0",
     "react-slick": "^0.28.1",
     "react-toastify": "^8.2.0",
+    "react-type-animation": "^1.1.2",
     "sass": "^1.49.7",
     "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.4.4",

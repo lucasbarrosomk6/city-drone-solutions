@@ -1,7 +1,24 @@
 import ReactPlayer from "react-player/lazy";
 import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
 import { useEffect, useRef, useState } from "react";
+import TypeAnimation from "react-type-animation";
 
+const TypedText = ({ text, el, delay }) => {
+  return (
+    <TypeAnimation
+      cursor={true}
+      repeat="infinite"
+      sequence={[
+        "Vancouver Based Drone Videography",
+        2000,
+        "Vancouver Based Drone Photography",
+        2000,
+        "Vancouver Based Drone Services",
+      ]}
+      wrapper={el}
+    />
+  );
+};
 const VideoHero = () => {
   const storage = getStorage();
   const [videoURL, setVideoURL] = useState("");
@@ -18,30 +35,47 @@ const VideoHero = () => {
   };
   useEffect(() => {
     const url = async () => {
-      const response = await getVideo("Burquitlam", "DJI_0281.MP4");
-      console.log(typeof response);
-      setVideoURL(response);
-      return response;
+      //   const response = await getVideo("Burquitlam", "DJI_0281.MP4");
+      //   console.log(typeof response);
+      setVideoURL(
+        "https://video-test-bed.s3.us-west-1.amazonaws.com/tower-push-in_1.mp4"
+      );
+      //   return response;
     };
     url();
   }, []);
 
   return (
-    <div className="video-hero-container">
-      <span className={`loading-placeholder ${play && "loaded"}`} />
+    <>
+      <div className="wall">
+        <div class="title-row">
+          <div class="col-xxl-12">
+            <div class="section__title-wrapper ">
+              <h1 class="section__title">City Drone Solutions</h1>
+              <TypedText text="City Drone Solutions" el="h4" delay={1000} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="video-hero-container">
+        <span className={`loading-placeholder ${play && "loaded"}`} />
 
-      <ReactPlayer
-        playbackRate={0.5}
-        loop
-        muted
-        playing={play}
-        url={videoURL}
-        onReady={() => setPlay(true)}
-        width="100%"
-        height="auto"
-        style={{ objectFit: "contain" }}
-      ></ReactPlayer>
-    </div>
+        <ReactPlayer
+          playbackRate={1}
+          loop
+          muted
+          playing={play}
+          url={
+            "https://video-test-bed.s3.us-west-1.amazonaws.com/tower-push-in_1.mp4"
+          }
+          onReady={() => setPlay(true)}
+          width="100%"
+          height="auto"
+          className="player-video"
+          style={{ position: "fixed", zIndex: "-999", top: "0" }}
+        ></ReactPlayer>
+      </div>
+    </>
   );
 };
 export default VideoHero;

@@ -26,7 +26,7 @@ const categoryData = [
 const CategoryArea = () => {
   return (
     <>
-      <section className="category__area pt-105 pb-135">
+      <section className="category__area pb-135 white-bg">
         <div className="container">
           <div className="row">
             <div className="col-xxl-12">

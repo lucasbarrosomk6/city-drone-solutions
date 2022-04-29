@@ -21,14 +21,7 @@ const Header = () => {
   return (
     <>
       <header>
-        <div
-          className={
-            sticky
-              ? "sticky header__area white-bg"
-              : "header__area white-bg-gradient"
-          }
-          id="header-sticky"
-        >
+        <div className={"sticky header__area white-bg"} id="header-sticky">
           <div className="container">
             <div className="row align-items-center">
               <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-6"></div>
