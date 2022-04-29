@@ -48,10 +48,10 @@ const VideoHero = () => {
   return (
     <>
       <div className="wall">
-        <div class="title-row">
-          <div class="col-xxl-12">
-            <div class="section__title-wrapper ">
-              <h1 class="section__title">City Drone Solutions</h1>
+        <div className="title-row">
+          <div className="col-xxl-12">
+            <div className="section__title-wrapper ">
+              <h1 className="section__title">City Drone Solutions</h1>
               <TypedText text="City Drone Solutions" el="h4" delay={1000} />
             </div>
           </div>
